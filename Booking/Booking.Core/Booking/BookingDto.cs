@@ -2,7 +2,7 @@
 
 public record BookingDto
 {
-    public required long Id { get; set; }
+    public required long Id { get; init; }
     
     public required long TenantId { get; init; }
 

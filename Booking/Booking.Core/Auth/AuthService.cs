@@ -5,6 +5,8 @@ using ErrorOr;
 
 namespace Booking.Core.Auth;
 
+// TODO: додати ендпоінт для рефрешу
+// TODO: додати метод для підтвердження електонної пошти, відправляючи повідомлення (електроний лист) з окремого Worker з-за допомогою AWS sqs, з використанням Outbox Pattern (використовуючи чергу)
 public interface IAuthService
 {
     Task<ErrorOr<UserDto>> SignUp(RegisterDto signUpDto);

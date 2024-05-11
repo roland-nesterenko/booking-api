@@ -11,6 +11,7 @@ public static class MigrationDatabaseExtensions
 
         using var dbContext = serviceScope.ServiceProvider.GetRequiredService<BookingDbContext>();
         
+        // Застосовуємо всі наявні (any pending) міграції до бази даних
         dbContext.Database.Migrate();
     }
 }

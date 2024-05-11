@@ -1,6 +1,6 @@
 ﻿namespace Booking.Core.Auth;
 
-public class RegisterDto
+public record RegisterDto
 {
     public required string Name { get; init; }
 

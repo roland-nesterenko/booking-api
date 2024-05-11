@@ -6,14 +6,18 @@ namespace Booking.RestApi.Extensions;
 
 public static class DependencyInjectionExtension
 {
+    // Конфігурація options
     public static IServiceCollection ConfigureOptions(this IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<SwaggerContactsInfoOptions>(
             configuration.GetSection(SwaggerContactsInfoOptions.SectionName));
 
+        // TODO: додати конфігурацію для AuthOptions
+        
         return services;
     }
     
+    // Метод розширення, де продемонстровано використання MS SQL Server згідно завдання
     public static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<BookingDbContext>(opt =>

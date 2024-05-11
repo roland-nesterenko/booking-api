@@ -22,6 +22,7 @@ public class RepositoryBase<TKey, TEntity, TContext>(TContext dbContext)
             .FirstOrDefaultAsync(e => e.Id!.Equals(id));
     }
     
+    // Метод для отримання списку екземплярів TEntity, які відповідають заданій специфікації
     public Task<List<TEntity>> GetBySpecification(Specification<TEntity> spec)
     {
         return dbContext.Set<TEntity>()
@@ -29,7 +30,8 @@ public class RepositoryBase<TKey, TEntity, TContext>(TContext dbContext)
             .Where(spec.ToExpression())
             .ToListAsync();
     }
-
+    
+// Метод для перевірки наявності екземпляра TEntity, який відповідає заданій специфікації
     public Task<bool> ExistsBySpecification(Specification<TEntity> spec)
     {
         return dbContext.Set<TEntity>()

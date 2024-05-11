@@ -26,6 +26,6 @@ public class BookingDbContext(DbContextOptions<BookingDbContext> options)
 
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         
-        // var roles = new List<UserRoleEntity>() { new UserRoleEntity { Name = "user" } };
+        // TODO: налаштувати зв'якзи через FluentAPI
     }
 }

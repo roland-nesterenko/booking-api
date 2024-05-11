@@ -8,13 +8,20 @@ namespace Booking.RestApi.Extensions;
 
 public static class SwaggerExtensions
 {
+    // Метод розширення для конфігурації SwaggerGen в сервісах
     public static IServiceCollection AddBookingAppSwaggerGen(
         this IServiceCollection services)
     {
+        // Додаємо API Explorer, який використовується SwaggerGen для генерації документації
         services.AddEndpointsApiExplorer();
+        
+        // Додаємо конфігурацію SwaggerGenOptions
         services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+        
+        // Додаємо SwaggerGen з налаштуваннями безпеки
         services.AddSwaggerGen(options =>
         {
+            // Додаємо визначення безпеки для JWT
             options.AddSecurityDefinition("Bearer",
                 new OpenApiSecurityScheme
                 {
@@ -30,6 +37,8 @@ public static class SwaggerExtensions
                         Id = "Bearer"
                     }
                 });
+            
+            // Додаємо вимоги до безпеки для JWT
             options.AddSecurityRequirement(new OpenApiSecurityRequirement
             {
                 {
@@ -49,6 +58,7 @@ public static class SwaggerExtensions
         return services;
     }
     
+    // Метод розширення для використання Swagger UI
     public static IApplicationBuilder UseSwaggerUi(
         this IApplicationBuilder app)
     {
