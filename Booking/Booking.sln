@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.RestApi", "Booking.RestApi\Booking.RestApi.csproj", "{DF97C1CC-EE7E-44D9-8CE2-2C00A7E5CEAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.Core", "Booking.Core\Booking.Core.csproj", "{48110EF0-030B-40EE-ADB2-3290F1320979}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.Infrastructure", "Booking.Infrastructure\Booking.Infrastructure.csproj", "{371A6CB1-71BE-450D-9A8C-650D1940F392}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Booking.Tests", "Booking.Tests\Booking.Tests.csproj", "{57F3A53A-ADD5-4031-A45D-99987B5F4EE1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF97C1CC-EE7E-44D9-8CE2-2C00A7E5CEAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF97C1CC-EE7E-44D9-8CE2-2C00A7E5CEAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF97C1CC-EE7E-44D9-8CE2-2C00A7E5CEAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF97C1CC-EE7E-44D9-8CE2-2C00A7E5CEAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48110EF0-030B-40EE-ADB2-3290F1320979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48110EF0-030B-40EE-ADB2-3290F1320979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48110EF0-030B-40EE-ADB2-3290F1320979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48110EF0-030B-40EE-ADB2-3290F1320979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{371A6CB1-71BE-450D-9A8C-650D1940F392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{371A6CB1-71BE-450D-9A8C-650D1940F392}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{371A6CB1-71BE-450D-9A8C-650D1940F392}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{371A6CB1-71BE-450D-9A8C-650D1940F392}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57F3A53A-ADD5-4031-A45D-99987B5F4EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57F3A53A-ADD5-4031-A45D-99987B5F4EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57F3A53A-ADD5-4031-A45D-99987B5F4EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57F3A53A-ADD5-4031-A45D-99987B5F4EE1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
