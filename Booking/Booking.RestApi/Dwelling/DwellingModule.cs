@@ -62,10 +62,9 @@ public static class DwellingModule
                 Id = id,
                 Name = req.Name,
                 Description = req.Description,
-                OwnerId = req.OwnerId
             };
 
-            var result = await service.Update(dto);
+            var result = await service.Update(dto, httpContext.User.GetUserId());
             return result.Match(Results.Ok, e => e.Problem(context: httpContext));
         });
 

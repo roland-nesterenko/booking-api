@@ -10,7 +10,7 @@ public interface IDwellingService
     Task<ErrorOr<List<DwellingDto>>> GetAll();
     Task<ErrorOr<DwellingDto>> Get(long entityId);
     Task<ErrorOr<DwellingDto>> Create(CreateDwellingDto toCreateDwelling);
-    Task<ErrorOr<DwellingDto>> Update(UpdateDwellingDto dwellingToUpdate);
+    Task<ErrorOr<DwellingDto>> Update(UpdateDwellingDto dwellingToUpdate, long userId);
     Task<ErrorOr<bool>> Delete(long entityId, long userId);
 }
 
@@ -91,7 +91,7 @@ public class DwellingService(IDwellingRepository repository)
         return dto;
     }
 
-    public async Task<ErrorOr<DwellingDto>> Update(UpdateDwellingDto dwellingToUpdate)
+    public async Task<ErrorOr<DwellingDto>> Update(UpdateDwellingDto dwellingToUpdate, long userId)
     {
         var entity = await repository.GetById(dwellingToUpdate.Id);
 
@@ -100,9 +100,11 @@ public class DwellingService(IDwellingRepository repository)
             return DwellingErrors.NotFound(dwellingToUpdate.Id);
         }
         
-        var entitySpec = DwellingSpecs.ByName(dwellingToUpdate.Name);
-        var isDuplicate = await repository.ExistsBySpecification(entitySpec);
-        if (isDuplicate)
+        var leftSpecs = DwellingSpecs.ByName(dwellingToUpdate.Name);
+        var rightSpecs = DwellingSpecs.ByOwnerId(userId);
+        var specs = new AndSpecification<DwellingEntity>(leftSpecs, rightSpecs);
+        var entities = await repository.GetBySpecification(specs);
+        if (entities.Count >= 1)
         {
             return DwellingErrors.Duplicate(dwellingToUpdate.Name);
         }
@@ -125,7 +127,6 @@ public class DwellingService(IDwellingRepository repository)
 
     public async Task<ErrorOr<bool>> Delete(long entityId, long userId)
     {
-        // TODO
         var leftSpecs = DwellingSpecs.ById(entityId);
         var rightSpecs = DwellingSpecs.ByOwnerId(userId);
         var specs = new AndSpecification<DwellingEntity>(leftSpecs, rightSpecs);
